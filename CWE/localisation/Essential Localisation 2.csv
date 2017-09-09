@@ -761,3 +761,4 @@ EVT_2626_DESC;$FROMCOUNTRY$ continues to hold some of our lands, lands which unt
 EVT_2626_A;There is nothing we can do.;;;;;;;;;;X;;;;;;;
 EVT_2626_B;We will not stand for this!;;;;;;;;;;X;;;;;;;
 flooded;Flooded;;;;;;;;;;X;;;;;;;
+pillarised_province;Pillarised Province;;;;;;;;;;X;;;;;;;

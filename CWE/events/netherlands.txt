@@ -238,7 +238,8 @@ country_event = {
   option = {
     name = EVT_8006708_A
     NET = {
-      any_pop = { limit = { culture = dutch } ideology = { value = big_tent factor = 0.25 } }  
+      any_pop = { limit = { culture = dutch } ideology = { value = socialist factor = -0.05 } ideology = { value = big_tent factor = 0.30 } }  
+      any_owned = { limit = { is_core = THIS } add_province_modifier = { name = pillarised_province duration = -1 } }
     }
   }
 }

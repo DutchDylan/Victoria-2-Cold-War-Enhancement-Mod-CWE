@@ -417,7 +417,7 @@ immigration_colonization_focus =
 	{
 		own_provinces = no
 		ideology = big_tent
-		loyalty_value = 0.01 # By that much pops will be more loyal
+		loyalty_value = 0.001 # By that much pops will be more loyal
 		icon = 44
 	}
 
