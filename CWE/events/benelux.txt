@@ -306,3 +306,93 @@ country_event = {
     ai_chance = { factor = 1 }
   }
 }
+
+
+#Event which will fire from the start to pillarise the Low Countries (1945 start only)
+country_event = {
+  id = 8006709
+  title = EVT_8006709_NAME
+  desc = EVT_8006708_DESC
+  picture = "nwo2_depillarised_society"
+
+  trigger = { 
+    OR = { tag = NET tag = BEL tag = LUX } #The three low countries
+    year = 1946 NOT = { year = 1947 } #Only fire on first startdate
+    NOT = { has_country_flag = pillarised_society }
+  }
+  
+  mean_time_to_happen = { months = 0 }
+
+  option = {
+    name = EVT_8006708_A
+    THIS = {
+      any_pop = { 
+        limit = { OR = { culture = dutch culture = flemish culture = wallonian culture = german culture = french } } 
+        ideology = { value = socialist factor = -0.05 } ideology = { value = big_tent factor = 0.30 } 
+      }  
+      any_owned = { limit = { is_core = THIS } add_province_modifier = { name = pillarised_province duration = -1 } }
+      set_country_flag = pillarised_society
+    }
+  }
+}
+
+#De-Pillarisation of the Low Countries
+country_event = {
+  id = 8006708
+  title = EVT_8006708_NAME
+  desc = EVT_8006708_DESC
+  picture = "nwo2_depillarised_society"
+
+  trigger = {
+    has_country_flag = pillarised_society
+    OR = {
+      AND = {
+        year = 1960 NOT = { year = 1980 } #60's and 70's
+        pstn_network = 1 #Widespread media acces
+        third_way = 1 #Economic growth
+      }
+      NOT = { government = hms_government } #Country has undergone radical government change
+    }
+  }
+  
+  mean_time_to_happen = { months = 12 }
+
+  option = {
+    name = EVT_8006708_A
+    THIS = {
+      any_owned = { limit = { has_province_modifier = pillarised_province } remove_province_modifier = pillarised_province }
+      clr_country_flag = pillarised_society
+    }
+  }
+}
+
+#Benelux customs-union implementation - see: http://www.benelux.int/nl/benelux-unie/tijdlijn
+country_event = {
+  id = 7000015
+  title = "EVT_70000016_NAME"
+  desc = "EVT_7000016_DESC"
+  picture = "Benelux_GeneralPicture"
+
+  trigger = { 
+    OR = { tag = NET tag = BEL tag = LUX }
+    OR = { government = democracy government = hms_government }
+    year = 1948 NOT = { year = 1949 }
+    NOT = { has_country_flag = bnl_customs_union }
+  }
+
+  mean_time_to_happen = { months = 0 }
+
+  option = {
+    name = "EVT_7000015_A"
+    set_country_flag = bnl_customs_union
+    
+    relation = { who = NET value = 25 }
+    diplomatic_influence = { who = NET value = 25 }
+    relation = { who = BEL value = 25 }
+    diplomatic_influence = { who = BEL value = 25 }
+    relation = { who = LUX value = 25 }
+    diplomatic_influence = { who = LUX value = 25 }
+  }
+}
+
+

@@ -189,61 +189,9 @@ country_event = {
   }
 }
 
-#De-Pillarisation
-#Event to depillarise the Netherlands after it has been pillarised
-country_event = {
-  id = 8006708
-  title = EVT_8006708_NAME
-  desc = EVT_8006708_DESC
-  picture = "nwo2_depillarised_society"
-  fire_only_once = yes
+#Military related events, see https://www.defensie.nl/onderwerpen/tijdlijn-militaire-geschiedenis/1945-1960-wederopbouw-en-de-koude-oorlog
 
-  trigger = {
-    year = 1960 NOT = { year = 1980 } #60's and 70's
-    pstn_network = 1 #Widespread media acces
-    third_way = 1 #Economic growth
-    tag = NET 
-    OR = { government = democracy government = hms_government } #check if country hasn't become a dictatorship
-  }
-  
-  mean_time_to_happen = { months = 6 }
-
-  option = {
-    name = EVT_8006708_A
-    NET = {
-      any_pop = { ideology = { value = traditionalist factor = -0.10 } }  
-      any_pop = { ideology = { value = conservative factor = -0.10 } } 
-      any_pop = { ideology = { value = liberal factor = 0.10 } }   
-      any_pop = { ideology = { value = socialist factor = 0.10 } }  
-    }
-  }
-}
-
-#Pillarisation
-#Event which will fire from the start to pillarise the Netherlands (1945 start only)
-country_event = {
-  id = 8006709
-  title = EVT_8006709_NAME
-  desc = EVT_8006708_DESC
-  picture = "nwo2_depillarised_society"
-  fire_only_once = yes
-
-  trigger = {
-    tag = NET 
-    year = 1946 NOT = { year = 1947 }
-  }
-  
-  mean_time_to_happen = { months = 0 }
-
-  option = {
-    name = EVT_8006708_A
-    NET = {
-      any_pop = { limit = { culture = dutch } ideology = { value = socialist factor = -0.05 } ideology = { value = big_tent factor = 0.30 } }  
-      any_owned = { limit = { is_core = THIS } add_province_modifier = { name = pillarised_province duration = -1 } }
-    }
-  }
-}
-
+#Pillarisation and de-pillarisation have been moved to the Benelux file
 
 #Assassination of Pim Fortuyn
 

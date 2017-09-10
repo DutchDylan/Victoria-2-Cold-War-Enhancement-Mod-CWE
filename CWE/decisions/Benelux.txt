@@ -35,7 +35,7 @@ political_decisions = {
 				OR = { is_sphere_leader_of = LUX is_our_vassal = LUX tag = LUX }
 				OR = { LUX = { government = democracy } LUX = { government = hms_government } }
 			}
-		}
+		}	
 		
 		effect = {
 			prestige = 20
